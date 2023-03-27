@@ -13,13 +13,12 @@
         android:layout_height="109dp"
         android:layout_marginStart="75dp"
         android:layout_marginTop="100dp"
-        android:layout_marginEnd="76dp"
+        android:layout_marginEnd="75dp"
+        android:contentDescription="@string/img_mainLogo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logotabs1"
-        android:contentDescription="@string/img_mainLogo" />
+        app:srcCompat="@drawable/logotabs1" />
 
     <ImageView
         android:id="@+id/img_loginBack"
@@ -29,12 +28,11 @@
         android:layout_marginTop="84dp"
         android:layout_marginEnd="98dp"
         android:alpha="0.2"
+        android:contentDescription="@string/img_loginBack"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/img_mainLogo"
-        app:srcCompat="@drawable/login_background"
-        android:contentDescription="@string/img_loginBack" />
+        app:srcCompat="@drawable/login_background" />
 
     <Button
         android:id="@+id/btn_inciarSesion"
@@ -45,11 +43,11 @@
         android:layout_marginEnd="98dp"
         android:background="@drawable/button_radius"
         android:fontFamily="@font/sriracha"
+        android:onClick="iniciar_sesion"
         android:text="@string/btn_iniciarSesion"
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/img_mainLogo" />
 
@@ -62,11 +60,11 @@
         android:layout_marginEnd="98dp"
         android:background="@drawable/button_radius"
         android:fontFamily="@font/sriracha"
+        android:onClick="resgister"
         android:text="@string/btn_iniciarRegister"
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_inciarSesion" />
 
