@@ -4,4 +4,81 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"/>
+    android:background="@drawable/gradient_main"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/img_mainLogo"
+        android:layout_width="345dp"
+        android:layout_height="109dp"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="76dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logotabs1"
+        android:contentDescription="@string/img_mainLogo" />
+
+    <ImageView
+        android:id="@+id/img_loginBack"
+        android:layout_width="339dp"
+        android:layout_height="335dp"
+        android:layout_marginStart="98dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="98dp"
+        android:alpha="0.2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_mainLogo"
+        app:srcCompat="@drawable/login_background"
+        android:contentDescription="@string/img_loginBack" />
+
+    <Button
+        android:id="@+id/btn_inciarSesion"
+        android:layout_width="250dp"
+        android:layout_height="77dp"
+        android:layout_marginStart="98dp"
+        android:layout_marginTop="156dp"
+        android:layout_marginEnd="98dp"
+        android:background="@drawable/button_radius"
+        android:fontFamily="@font/sriracha"
+        android:text="@string/btn_iniciarSesion"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_mainLogo" />
+
+    <Button
+        android:id="@+id/btn_inciarRegister"
+        android:layout_width="250dp"
+        android:layout_height="77dp"
+        android:layout_marginStart="98dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="98dp"
+        android:background="@drawable/button_radius"
+        android:fontFamily="@font/sriracha"
+        android:text="@string/btn_iniciarRegister"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_inciarSesion" />
+
+    <ImageView
+        android:id="@+id/img_mainPick"
+        android:layout_width="96dp"
+        android:layout_height="92dp"
+        android:layout_marginTop="34dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_mainLogo"
+        app:srcCompat="@drawable/pick"
+        android:contentDescription="@string/img_mainPick" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

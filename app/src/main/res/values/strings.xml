@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">PlayTabs</string>
+    <string name="btn_iniciarSesion">Iniciar Sesión</string>
+    <string name="btn_iniciarRegister">Registrarse</string>
+    <string name="img_mainPick">pick</string>
+    <string name="img_loginBack">login background</string>
+    <string name="img_mainLogo">main loogo</string>
 </resources>
