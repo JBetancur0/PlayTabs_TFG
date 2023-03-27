@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "356856566411",
+    "project_id": "playtabs-20d5e",
+    "storage_bucket": "playtabs-20d5e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:356856566411:android:9edc84e8455bd31506fa8e",
+        "android_client_info": {
+          "package_name": "com.juancho_dam.playtabs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "356856566411-tgkvlab9bplvg3hunddinq4ehtnlqa1j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7evUgdkhxYORPds_QIXMG5I1hNnkR0Kw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "356856566411-tgkvlab9bplvg3hunddinq4ehtnlqa1j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
