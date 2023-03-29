@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_main"
+    tools:context=".main_menu_activity">
+
+    <EditText
+        android:id="@+id/input_nom_tab"
+        android:layout_width="393dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="40dp"
+        android:autofillHints=""
+        android:background="@drawable/input_background"
+        android:ems="10"
+        android:fontFamily="@font/sriracha"
+        android:hint="@string/input_nom_tab"
+        android:inputType="textPersonName"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:textColor="#000000"
+        android:textColorHint="#4540514C"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_nombre_user" />
+
+    <ImageView
+        android:id="@+id/img_back_rv_tabsH"
+        android:layout_width="396dp"
+        android:layout_height="361dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_tabs_momento"
+        app:srcCompat="@drawable/input_background" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_tabsH"
+        android:layout_width="377dp"
+        android:layout_height="332dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/img_back_rv_tabsH" />
+
+    <TextView
+        android:id="@+id/txt_tabs_momento"
+        android:layout_width="322dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="45dp"
+        android:fontFamily="@font/sriracha"
+        android:gravity="center"
+        android:text="@string/txt_tabs_momento"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_buscar_tab" />
+
+    <Button
+        android:id="@+id/btn_buscar_tab"
+        android:layout_width="158dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="125dp"
+        android:background="@drawable/button_radius"
+        android:fontFamily="@font/sriracha"
+        android:text="@string/btn_buscar"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_nom_tab" />
+
+    <TextView
+        android:id="@+id/txt_welcome_user"
+        android:layout_width="141dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/sriracha"
+        android:gravity="center"
+        android:text="@string/txt_welcome_user"
+        android:textColor="#000000"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_nombre_user"
+        android:layout_width="262dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/sriracha"
+        android:gravity="center"
+        android:text="@string/txt_nombre_user"
+        android:textColor="#000000"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

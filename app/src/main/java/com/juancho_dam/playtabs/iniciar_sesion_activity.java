@@ -20,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class iniciar_sesion_activity extends AppCompatActivity {
 
+    public static final String EXTRA_CURRENT_USER = "es.juancho.iniciarS_user";
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
     private EditText input_email;
@@ -74,6 +75,10 @@ public class iniciar_sesion_activity extends AppCompatActivity {
                                 // Sign in success, update UI with the signed-in user's information
                                 Toast.makeText(iniciar_sesion_activity.this, "Inicio de Sesión correcto", Toast.LENGTH_SHORT).show();
                                 FirebaseUser user = mAuth.getCurrentUser();
+                                Intent i = new Intent(iniciar_sesion_activity.this, main_menu_activity.class);
+                                i.putExtra(EXTRA_CURRENT_USER, user);
+                                startActivity(i);
+                                finish();
                                 //updateUI(user);
 
                             } else {

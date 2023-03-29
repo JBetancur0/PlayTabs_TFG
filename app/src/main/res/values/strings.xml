@@ -14,4 +14,10 @@
     <string name="img_regisLogo">regis logo</string>
     <string name="img_regisPick">regis pick</string>
     <string name="img_regisBack">regis back</string>
+    <string name="txt_tabs_momento">Las canciones del momento son:</string>
+    <string name="btn_buscar">Buscar</string>
+    <string name="input_nom_tab">Quiero aprender a tocar...</string>
+    <string name="txt_welcome_user">Bienvenido</string>ç
+    <string name="txt_nombre_user">user_name</string>
+    <string name="txt_userRegis">Nombre de usuario</string>
 </resources>
