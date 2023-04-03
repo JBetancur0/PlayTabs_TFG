@@ -83,9 +83,9 @@
 
     <TextView
         android:id="@+id/txt_welcome_user"
-        android:layout_width="141dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="174dp"
+        android:layout_height="83dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/sriracha"
         android:gravity="center"
         android:text="@string/txt_welcome_user"
@@ -96,9 +96,9 @@
 
     <TextView
         android:id="@+id/txt_nombre_user"
-        android:layout_width="262dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="237dp"
+        android:layout_height="83dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/sriracha"
         android:gravity="center"
         android:text="@string/txt_nombre_user"

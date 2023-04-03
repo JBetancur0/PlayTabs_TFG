@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:background="@drawable/button_radius"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/rv_tabsh_txtNombreC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sriracha"
+        android:text="@string/rv_tabsh_txtNombreC"
+        android:textColor="#000000"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/rv_tabsh_txtArtistaC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sriracha"
+        android:text="@string/rv_tabsh_txtArtista"
+        android:textColor="#000000"
+        android:textSize="18sp" />
+
+    <RatingBar
+        android:id="@+id/rtbar_tabsh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:isIndicator="true"
+        android:numStars="5"
+        android:progressTint="#FFFD52"
+        tools:ignore="SpeakableTextPresentCheck" />
+</LinearLayout>

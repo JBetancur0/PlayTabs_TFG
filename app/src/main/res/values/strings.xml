@@ -17,7 +17,9 @@
     <string name="txt_tabs_momento">Las canciones del momento son:</string>
     <string name="btn_buscar">Buscar</string>
     <string name="input_nom_tab">Quiero aprender a tocar...</string>
-    <string name="txt_welcome_user">Bienvenido</string>ç
+    <string name="txt_welcome_user">¡Hola de nuevo!</string>ç
     <string name="txt_nombre_user">user_name</string>
     <string name="txt_userRegis">Nombre de usuario</string>
+    <string name="rv_tabsh_txtNombreC">Canción:</string>
+    <string name="rv_tabsh_txtArtista">Artista:</string>
 </resources>
