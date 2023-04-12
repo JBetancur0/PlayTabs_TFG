@@ -12,7 +12,7 @@
         android:layout_width="393dp"
         android:layout_height="72dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="40dp"
         android:autofillHints=""
         android:background="@drawable/input_background"
@@ -25,9 +25,9 @@
         android:textColor="#000000"
         android:textColorHint="#4540514C"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintHorizontal_bias="0.467"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_nombre_user" />
+        app:layout_constraintTop_toBottomOf="@+id/img_btnMenu" />
 
     <ImageView
         android:id="@+id/img_back_rv_tabsH"
@@ -65,6 +65,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_buscar_tab" />
 
+    <TextView
+        android:id="@+id/txt_siguiente_cancion"
+        android:layout_width="249dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/sriracha"
+        android:gravity="center"
+        android:text="@string/txt_siguiente_cancion"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_btnMenu"
+        android:layout_width="56dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="4dp"
+        android:onClick="open_menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/menu"
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+
     <Button
         android:id="@+id/btn_buscar_tab"
         android:layout_width="158dp"
@@ -81,30 +107,53 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_nom_tab" />
 
-    <TextView
-        android:id="@+id/txt_welcome_user"
-        android:layout_width="174dp"
-        android:layout_height="83dp"
-        android:layout_marginTop="4dp"
-        android:fontFamily="@font/sriracha"
-        android:gravity="center"
-        android:text="@string/txt_welcome_user"
-        android:textColor="#000000"
-        android:textSize="25dp"
+    <ImageView
+        android:id="@+id/img_menuBack"
+        android:layout_width="283dp"
+        android:layout_height="591dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="4dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/lateral_menu_back" />
+
+    <ImageView
+        android:id="@+id/img_btnBack"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:onClick="hide_menu"
+        android:rotation="90"
+        android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_pick"
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
     <TextView
-        android:id="@+id/txt_nombre_user"
-        android:layout_width="237dp"
-        android:layout_height="83dp"
-        android:layout_marginTop="4dp"
+        android:id="@+id/txt_user_name"
+        android:layout_width="163dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="16dp"
         android:fontFamily="@font/sriracha"
         android:gravity="center"
         android:text="@string/txt_nombre_user"
         android:textColor="#000000"
-        android:textSize="25dp"
+        android:textSize="23sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_user_pic"
+        android:layout_width="79dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintEnd_toStartOf="@+id/txt_user_name"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/user_pic" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

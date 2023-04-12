@@ -22,4 +22,5 @@
     <string name="txt_userRegis">Nombre de usuario</string>
     <string name="rv_tabsh_txtNombreC">Canción:</string>
     <string name="rv_tabsh_txtArtista">Artista:</string>
+    <string name="txt_siguiente_cancion">¿Qué canción quieres aprender?</string>
 </resources>
