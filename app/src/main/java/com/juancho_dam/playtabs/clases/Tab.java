@@ -1,6 +1,8 @@
 package com.juancho_dam.playtabs.clases;
 
-public class Tab {
+import java.io.Serializable;
+
+public class Tab implements Serializable {
 
     private String idCancion;
     private String nombreCancion;

@@ -93,10 +93,16 @@ public class main_menu_activity extends AppCompatActivity {
 
 
         Intent i = getIntent();
-        FirebaseUser user = i.getParcelableExtra(iniciar_sesion_activity.EXTRA_CURRENT_USER);
 
-        String user_nameFirebase = user.getDisplayName();
-        user_name.setText(user_nameFirebase);
+        if(i != null){
+
+            FirebaseUser user = i.getParcelableExtra(iniciar_sesion_activity.EXTRA_CURRENT_USER);
+
+            String user_nameFirebase = user.getDisplayName();
+            user_name.setText(user_nameFirebase);
+
+        }
+
 
 
 

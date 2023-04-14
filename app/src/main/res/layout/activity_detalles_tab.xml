@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_main"
+    tools:context=".detalles_tab_activity">
+
+    <HorizontalScrollView
+        android:layout_width="709dp"
+        android:layout_height="291dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.927"
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck">
+
+        <LinearLayout
+            android:id="@+id/scrollContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/tabView1"
+                android:layout_width="707dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/button_radius" />
+
+            <ImageView
+                android:id="@+id/tabView2"
+                android:layout_width="707dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/button_radius" />
+
+            <ImageView
+                android:id="@+id/tabView3"
+                android:layout_width="707dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/button_radius" />
+
+            <ImageView
+                android:id="@+id/tabView4"
+                android:layout_width="707dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/button_radius" />
+
+            <ImageView
+                android:id="@+id/tabView5"
+                android:layout_width="707dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/button_radius" />
+
+            <ImageView
+                android:id="@+id/tabView6"
+                android:layout_width="707dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/button_radius" />
+
+            <ImageView
+                android:id="@+id/tabView7"
+                android:layout_width="707dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/button_radius" />
+
+            <ImageView
+                android:id="@+id/tabView8"
+                android:layout_width="707dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/button_radius" />
+
+            <ImageView
+                android:id="@+id/tabView9"
+                android:layout_width="707dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/button_radius" />
+
+            <ImageView
+                android:id="@+id/tabView10"
+                android:layout_width="707dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/button_radius" />
+
+            <ImageView
+                android:id="@+id/tabView11"
+                android:layout_width="707dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/button_radius" />
+
+            <ImageView
+                android:id="@+id/tabView12"
+                android:layout_width="707dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/button_radius" />
+
+            <ImageView
+                android:id="@+id/tabView13"
+                android:layout_width="707dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/button_radius" />
+
+            <ImageView
+                android:id="@+id/tabView14"
+                android:layout_width="707dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/button_radius" />
+
+            <ImageView
+                android:id="@+id/tabView15"
+                android:layout_width="707dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/button_radius" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/txt_nombreTab"
+        android:layout_width="397dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/sriracha"
+        android:gravity="center"
+        android:text="@string/txt_nombreTab"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_nombreArtista"
+        android:layout_width="270dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/sriracha"
+        android:gravity="center"
+        android:text="@string/txt_nombreArtista"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_nombreTab" />
+
+    <ImageView
+        android:id="@+id/btn_backDetails"
+        android:layout_width="64dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:onClick="volverAtras"
+        android:rotation="90"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_pick" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

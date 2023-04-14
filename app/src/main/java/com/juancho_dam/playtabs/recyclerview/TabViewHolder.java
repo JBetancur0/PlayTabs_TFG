@@ -1,6 +1,7 @@
 package com.juancho_dam.playtabs.recyclerview;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -10,9 +11,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.juancho_dam.playtabs.R;
 import com.juancho_dam.playtabs.clases.Tab;
+import com.juancho_dam.playtabs.detalles_tab_activity;
+import com.juancho_dam.playtabs.main_menu_activity;
 
 public class TabViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
+    public static final String EXTRA_TAB_ITEM = "es.juancho.detalles_tab";
+    public static final String EXTRA_POSICION_CASILLA = "es.juancho.posicionCasilla";
     private TextView txt_nombreC;
     private TextView txt_artista;
     private RatingBar rtbar_tab;
@@ -73,6 +78,15 @@ public class TabViewHolder extends RecyclerView.ViewHolder implements View.OnCli
 
     @Override
     public void onClick(View view) {
+
+        int posicion = getLayoutPosition();
+        Tab t = lta.getTabs().get(posicion);
+        Intent intent = new Intent(lta.getContexto(), detalles_tab_activity.class);
+        intent.putExtra(EXTRA_TAB_ITEM, t);
+        intent.putExtra(EXTRA_POSICION_CASILLA, posicion);
+        Context contexto = lta.getContexto();
+
+        ((main_menu_activity) contexto).startActivity(intent);
 
 
     }

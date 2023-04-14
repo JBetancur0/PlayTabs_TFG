@@ -23,4 +23,6 @@
     <string name="rv_tabsh_txtNombreC">Canción:</string>
     <string name="rv_tabsh_txtArtista">Artista:</string>
     <string name="txt_siguiente_cancion">¿Qué canción quieres aprender?</string>
+    <string name="txt_nombreTab">nombre_canción</string>
+    <string name="txt_nombreArtista">nombre_artista</string>
 </resources>
