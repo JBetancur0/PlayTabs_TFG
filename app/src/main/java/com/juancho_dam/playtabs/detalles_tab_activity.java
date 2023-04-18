@@ -1,19 +1,36 @@
 package com.juancho_dam.playtabs;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.transition.ChangeImageTransform;
+import androidx.transition.Scene;
+import androidx.transition.TransitionManager;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.Animatable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.ListResult;
 import com.google.firebase.storage.StorageReference;
@@ -25,6 +42,7 @@ import java.util.ArrayList;
 
 public class detalles_tab_activity extends AppCompatActivity {
 
+    private Tab t;
     private ImageView viewTab1;
     private ImageView viewTab2;
     private ImageView viewTab3;
@@ -44,8 +62,11 @@ public class detalles_tab_activity extends AppCompatActivity {
     private LinearLayout scrollCont;
     private TextView nombreTab;
     private TextView nombreArtista;
-    private ImageView btnAtras;
-
+    private FirebaseDatabase database;
+    private FirebaseAuth mAuth;
+    private FirebaseUser currentUser;
+    private ImageView btn_addFav;
+    private boolean isFav;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,27 +87,79 @@ public class detalles_tab_activity extends AppCompatActivity {
         viewTab13 = findViewById(R.id.tabView13);
         viewTab14 = findViewById(R.id.tabView14);
         viewTab15 = findViewById(R.id.tabView15);
+
+        btn_addFav = findViewById(R.id.btn_addFav);
         scrollCont = findViewById(R.id.scrollContainer);
         nombreTab = findViewById(R.id.txt_nombreTab);
         nombreArtista = findViewById(R.id.txt_nombreArtista);
-        btnAtras = findViewById(R.id.btn_backDetails);
 
+        database = FirebaseDatabase.getInstance();
+        mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
         storage = FirebaseStorage.getInstance();
 
 
         Intent i = getIntent();
 
         String idTab = "";
+        StorageReference listRef = null;
         if (i != null){
 
-            Tab t  = (Tab) i.getSerializableExtra(TabViewHolder.EXTRA_TAB_ITEM);
+            t  = (Tab) i.getSerializableExtra(TabViewHolder.EXTRA_TAB_ITEM);
             nombreTab.setText(t.getNombreCancion());
             nombreArtista.setText(t.getArtista());
             idTab = t.getIdCancion();
+            listRef = storage.getReference().child(t.getIdCancion()+"/");
         }
 
+        DatabaseReference refFavs = FirebaseDatabase.getInstance().getReference("favUsers").child(currentUser.getDisplayName());;
+        ArrayList<String> listFavs = new ArrayList<String>();
+        refFavs.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-        StorageReference listRef = storage.getReference().child("1/");
+                for(DataSnapshot dataSnapshot : snapshot.getChildren())
+                {
+                    String s = (String) dataSnapshot.getValue(String.class);
+                    listFavs.add(s);
+                }
+
+                if (listFavs.contains(t.getIdCancion())){
+
+                    isFav = true;
+                }
+
+                else{
+
+                    isFav = false;
+
+                }
+
+                listFavs.clear();
+
+                if (isFav == true){
+
+                    btn_addFav.setImageResource(R.drawable.fav_heart_f);
+
+                }
+
+                else{
+
+                    btn_addFav.setImageResource(R.drawable.fav_heart);
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+
+
 
         String finalIdTab = idTab;
         listRef.listAll()
@@ -114,10 +187,8 @@ public class detalles_tab_activity extends AppCompatActivity {
 
                         for (StorageReference item : listResult.getItems()) {
                             numFotos++;
-                            // All the items under listRef.
                         }
                         String numF = String.valueOf(numFotos);
-                        Log.i("numF", numF);
 
                         int cont = 1;
                         for (ImageView i : imagenesTab){
@@ -139,9 +210,9 @@ public class detalles_tab_activity extends AppCompatActivity {
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
+
                     public void onFailure(@NonNull Exception e) {
-                        // Uh-oh, an error occurred!ç
-                        Log.i("numF", "Error");
+
                     }
                 });
 
@@ -151,5 +222,77 @@ public class detalles_tab_activity extends AppCompatActivity {
     public void volverAtras(View view) {
 
         finish();
+    }
+
+    public void addFav(View view) {
+
+        Intent i = getIntent();
+        Tab t  = (Tab) i.getSerializableExtra(TabViewHolder.EXTRA_TAB_ITEM);
+
+
+        if(isFav == true){
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("¿Deseas eliminar esta tablatura de favoritos?")
+                    .setTitle("Eliminar de Favoritos")
+                    .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            String userName = currentUser.getDisplayName();
+
+                            DatabaseReference myRef = database.getInstance().getReference("favUsers/"+currentUser.getDisplayName()+"/"+t.getIdCancion());
+                            myRef.removeValue();
+
+                            myRef.removeValue(new DatabaseReference.CompletionListener() {
+                                @Override
+                                public void onComplete(DatabaseError error, DatabaseReference ref) {
+                                    if (error != null) {
+
+                                    } else {
+                                        Toast.makeText(detalles_tab_activity.this, "La tablatura se eliminó de favoritos", Toast.LENGTH_LONG).show();
+                                    }
+                                }
+                            });
+
+
+                        }
+                    })
+                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            Toast.makeText(detalles_tab_activity.this, "Operación cancelada", Toast.LENGTH_LONG).show();
+                        }
+                    });
+            builder.show();
+
+        }
+
+        else if(isFav == false){
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("¿Deseas añadir esta tablatura a favoritos?")
+                    .setTitle("Añadir a Favoritos")
+                    .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+
+                            DatabaseReference myRef = database.getReference();
+
+                            String userName = currentUser.getDisplayName();
+
+                            myRef.child("favUsers").child(userName).child(t.getIdCancion()).setValue(t.getIdCancion());
+
+                            Toast.makeText(detalles_tab_activity.this, "La tablatura se añadió a favoritos", Toast.LENGTH_LONG).show();
+
+                        }
+                    })
+                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            Toast.makeText(detalles_tab_activity.this, "Operación cancelada", Toast.LENGTH_LONG).show();
+                        }
+                    });
+            builder.show();
+
+
+
+        }
+
     }
 }

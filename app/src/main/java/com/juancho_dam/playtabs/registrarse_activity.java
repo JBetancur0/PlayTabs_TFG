@@ -17,6 +17,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class registrarse_activity extends AppCompatActivity {
 
@@ -26,6 +31,7 @@ public class registrarse_activity extends AppCompatActivity {
     private EditText input_pass;
     private EditText input_userName;
     private CheckBox check_terms;
+    private FirebaseDatabase database;
 
 
     @Override
@@ -48,7 +54,9 @@ public class registrarse_activity extends AppCompatActivity {
         input_pass = findViewById(R.id.input_passRegis);
         check_terms = findViewById(R.id.check_terminosRegis);
         input_userName = findViewById(R.id.input_userRegis);
+        database = FirebaseDatabase.getInstance();
         mAuth = FirebaseAuth.getInstance();
+
     }
 
     public void registrarse(View view) {
@@ -101,7 +109,8 @@ public class registrarse_activity extends AppCompatActivity {
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if(task.isSuccessful()){
 
-                                                    Log.i("username", "bien");
+                                                    DatabaseReference myRef = database.getReference();
+                                                    myRef.child("favUsers").child(userName);
 
                                                 }
                                             }
