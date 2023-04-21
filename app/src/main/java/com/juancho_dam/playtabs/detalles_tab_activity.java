@@ -112,7 +112,7 @@ public class detalles_tab_activity extends AppCompatActivity {
             listRef = storage.getReference().child(t.getIdCancion()+"/");
         }
 
-        DatabaseReference refFavs = FirebaseDatabase.getInstance().getReference("favUsers").child(currentUser.getDisplayName());;
+        DatabaseReference refFavs = FirebaseDatabase.getInstance().getReference("favUsers").child(currentUser.getDisplayName());
         ArrayList<String> listFavs = new ArrayList<String>();
         refFavs.addValueEventListener(new ValueEventListener() {
             @Override

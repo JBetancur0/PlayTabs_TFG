@@ -103,6 +103,7 @@
         android:text="@string/btn_buscar"
         android:textColor="#000000"
         android:textSize="18sp"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_nom_tab" />
@@ -111,7 +112,7 @@
         android:id="@+id/img_menuBack"
         android:layout_width="283dp"
         android:layout_height="591dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="4dp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
@@ -155,5 +156,63 @@
         app:layout_constraintEnd_toStartOf="@+id/txt_user_name"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/user_pic" />
+
+    <Button
+        android:id="@+id/btn_profile"
+        android:layout_width="183dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="52dp"
+        android:background="@drawable/button_radius"
+        android:fontFamily="@font/sriracha"
+        android:text="@string/btn_profile"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_user_name" />
+
+    <Button
+        android:id="@+id/btn_favTabs"
+        android:layout_width="183dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="52dp"
+        android:background="@drawable/button_radius"
+        android:fontFamily="@font/sriracha"
+        android:onClick="favTabs"
+        android:text="@string/btn_favTabs"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_profile" />
+
+    <Button
+        android:id="@+id/btn_soporte"
+        android:layout_width="196dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="44dp"
+        android:background="@drawable/button_radius"
+        android:fontFamily="@font/sriracha"
+        android:text="@string/btn_soporte"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_favTabs" />
+
+    <Button
+        android:id="@+id/btn_cerrarS"
+        android:layout_width="183dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="156dp"
+        android:layout_marginEnd="52dp"
+        android:background="@drawable/button_radius"
+        android:fontFamily="@font/sriracha"
+        android:onClick="cerrarS"
+        android:text="@string/btn_cerrarS"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_soporte" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

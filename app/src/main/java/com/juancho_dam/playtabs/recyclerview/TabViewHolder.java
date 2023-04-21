@@ -86,7 +86,7 @@ public class TabViewHolder extends RecyclerView.ViewHolder implements View.OnCli
         intent.putExtra(EXTRA_POSICION_CASILLA, posicion);
         Context contexto = lta.getContexto();
 
-        ((main_menu_activity) contexto).startActivity(intent);
+        (contexto).startActivity(intent);
 
 
     }

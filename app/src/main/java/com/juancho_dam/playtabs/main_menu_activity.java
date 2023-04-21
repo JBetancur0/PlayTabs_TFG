@@ -36,6 +36,10 @@ public class main_menu_activity extends AppCompatActivity {
     private Button btn_buscarTab;
     private EditText input_nom_tab;
     private ImageView img_user_pic;
+    private Button btn_profile;
+    private Button btn_favTabs;
+    private Button btn_soporte;
+    private Button btn_cerrarS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,12 +53,24 @@ public class main_menu_activity extends AppCompatActivity {
         input_nom_tab = findViewById(R.id.input_nom_tab);
         user_name = findViewById(R.id.txt_user_name);
         img_user_pic = findViewById(R.id.img_user_pic);
+        btn_profile = findViewById(R.id.btn_profile);
+        btn_favTabs = findViewById(R.id.btn_favTabs);
+        btn_soporte = findViewById(R.id.btn_soporte);
+        btn_cerrarS = findViewById(R.id.btn_cerrarS);
 
         img_menuBack.setAlpha(0.0f);
         img_btnBack.setAlpha(0.0f);
-        img_btnBack.setClickable(false);
         user_name.setAlpha(0.0f);
         img_user_pic.setAlpha(0.0f);
+        btn_profile.setAlpha(0.0f);
+        btn_favTabs.setAlpha(0.0f);
+        btn_soporte.setAlpha(0.0f);
+        btn_cerrarS.setAlpha(0.0f);
+        btn_profile.setClickable(false);
+        btn_favTabs.setClickable(false);
+        btn_soporte.setClickable(false);
+        btn_cerrarS.setClickable(false);
+        img_btnBack.setClickable(false);
 
         LinearLayoutManager manager = new LinearLayoutManager(this);
         rv_tabsH.setLayoutManager(manager);
@@ -88,10 +104,6 @@ public class main_menu_activity extends AppCompatActivity {
             }
         });
 
-
-
-
-
         Intent i = getIntent();
 
         if(i != null){
@@ -102,15 +114,15 @@ public class main_menu_activity extends AppCompatActivity {
             user_name.setText(user_nameFirebase);
 
         }
-
-
-
-
     }
 
     public void open_menu(View view) {
 
         img_btnBack.setClickable(true);
+        btn_profile.setClickable(true);
+        btn_favTabs.setClickable(true);
+        btn_soporte.setClickable(true);
+        btn_cerrarS.setClickable(true);
         input_nom_tab.setClickable(false);
         input_nom_tab.setFocusable(false);
         rv_tabsH.setClickable(false);
@@ -121,13 +133,20 @@ public class main_menu_activity extends AppCompatActivity {
         img_btnBack.animate().alpha(1.0f).setDuration(300);
         user_name.animate().alpha(1.0f).setDuration(300);
         img_user_pic.animate().alpha(1.0f).setDuration(300);
-
-
+        btn_profile.animate().alpha(1.0f).setDuration(300);
+        btn_favTabs.animate().alpha(1.0f).setDuration(300);
+        btn_soporte.animate().alpha(1.0f).setDuration(300);
+        btn_cerrarS.animate().alpha(1.0f).setDuration(300);
 
     }
 
     public void hide_menu(View view) {
 
+        img_btnBack.setClickable(false);
+        btn_profile.setClickable(false);
+        btn_favTabs.setClickable(false);
+        btn_soporte.setClickable(false);
+        btn_cerrarS.setClickable(false);
         img_btnBack.setClickable(false);
         input_nom_tab.setClickable(true);
         input_nom_tab.setFocusable(true);
@@ -139,6 +158,23 @@ public class main_menu_activity extends AppCompatActivity {
         btn_buscarTab.animate().alpha(1.0f).setDuration(300);
         user_name.animate().alpha(0.0f).setDuration(300);
         img_user_pic.animate().alpha(0.0f).setDuration(300);
+        img_user_pic.animate().alpha(0.0f).setDuration(300);
+        btn_profile.animate().alpha(0.0f).setDuration(300);
+        btn_favTabs.animate().alpha(0.0f).setDuration(300);
+        btn_soporte.animate().alpha(0.0f).setDuration(300);
+        btn_cerrarS.animate().alpha(0.0f).setDuration(300);
+
+    }
+
+    public void cerrarS(View view) {
+
+        finish();
+    }
+
+    public void favTabs(View view) {
+
+        Intent i = new Intent(main_menu_activity.this, fav_tabs_activity.class);
+        startActivity(i);
 
     }
 }

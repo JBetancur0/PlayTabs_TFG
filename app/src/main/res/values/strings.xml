@@ -25,4 +25,9 @@
     <string name="txt_siguiente_cancion">¿Qué canción quieres aprender?</string>
     <string name="txt_nombreTab">nombre_canción</string>
     <string name="txt_nombreArtista">nombre_artista</string>
+    <string name="btn_profile">Mi Perfil</string>
+    <string name="btn_favTabs">Favoritos</string>
+    <string name="btn_soporte">Soprte y Contacto</string>
+    <string name="btn_cerrarS">Cerrar Sesión</string>
+    <string name="txt_favTabs">Tablaturas Favoritas</string>
 </resources>
