@@ -57,7 +57,7 @@ public class ImagenesFirebase {
     public static void descargarFoto(String nombre_carpeta, String nombre, ImageView imagendescargada) {
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference storageRef = storage.getReference();
-        StorageReference islandRef = storageRef.child(nombre_carpeta+"/"+nombre+".png");
+        StorageReference islandRef = storageRef.child(nombre_carpeta+"/"+nombre);
 
         final long tam_foto = 10240 * 1024; // tamaño máximo de la descarga de la imagen, si es mayor la descarga falla.
         islandRef.getBytes(tam_foto).addOnSuccessListener(new OnSuccessListener<byte[]>() {

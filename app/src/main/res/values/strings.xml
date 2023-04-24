@@ -30,4 +30,6 @@
     <string name="btn_soporte">Soprte y Contacto</string>
     <string name="btn_cerrarS">Cerrar Sesión</string>
     <string name="txt_favTabs">Tablaturas Favoritas</string>
+    <string name="btn_cambiarNombre">Cambiar Nombre de Usuario</string>
+    <string name="btn_cambiarImagen">Cambiar Foto de Perfil</string>
 </resources>

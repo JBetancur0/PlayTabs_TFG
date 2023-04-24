@@ -195,7 +195,7 @@ public class detalles_tab_activity extends AppCompatActivity {
 
                                 if (cont <= numFotos){
 
-                                    ImagenesFirebase.descargarFoto(finalIdTab, String.valueOf(cont), i);
+                                    ImagenesFirebase.descargarFoto(finalIdTab, String.valueOf(cont+".png"), i);
                                     cont++;
 
                             }

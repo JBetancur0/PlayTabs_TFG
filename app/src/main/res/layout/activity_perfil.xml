@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_main"
+    tools:context=".perfil_activity">
+
+    <ImageView
+        android:id="@+id/img_profileUserPic"
+        android:layout_width="145dp"
+        android:layout_height="128dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/user_pic" />
+
+    <TextView
+        android:id="@+id/txt_profileUserName"
+        android:layout_width="303dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/sriracha"
+        android:gravity="center"
+        android:text="@string/txt_nombre_user"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_profileUserPic" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="395dp"
+        android:layout_height="486dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_profileUserName"
+        app:srcCompat="@drawable/input_background" />
+
+    <Button
+        android:id="@+id/btn_cambiarNombre"
+        android:layout_width="311dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="136dp"
+        android:background="@drawable/button_radius"
+        android:fontFamily="@font/sriracha"
+        android:text="@string/btn_cambiarNombre"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_profileUserName" />
+
+    <Button
+        android:id="@+id/btn_cambiarFoto"
+        android:layout_width="311dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/button_radius"
+        android:fontFamily="@font/sriracha"
+        android:onClick="cambiar_foto"
+        android:text="@string/btn_cambiarImagen"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_cambiarNombre" />
+</androidx.constraintlayout.widget.ConstraintLayout>

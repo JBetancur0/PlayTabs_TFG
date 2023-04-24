@@ -165,6 +165,7 @@
         android:layout_marginEnd="52dp"
         android:background="@drawable/button_radius"
         android:fontFamily="@font/sriracha"
+        android:onClick="ir_perfil"
         android:text="@string/btn_profile"
         android:textColor="#000000"
         android:textSize="18sp"

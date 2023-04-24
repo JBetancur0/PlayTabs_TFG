@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,6 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.juancho_dam.playtabs.clases.Tab;
 import com.juancho_dam.playtabs.recyclerview.ListaTabsAdapter;
+import com.juancho_dam.playtabs.utilidades.ImagenesFirebase;
 
 import java.util.ArrayList;
 
@@ -40,11 +42,24 @@ public class main_menu_activity extends AppCompatActivity {
     private Button btn_favTabs;
     private Button btn_soporte;
     private Button btn_cerrarS;
+    private FirebaseAuth mAuth;
+    private FirebaseUser currentUser;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
+        ImagenesFirebase.descargarFoto(currentUser.getDisplayName(), "profilePic", img_user_pic);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+
+
 
         rv_tabsH = (RecyclerView) findViewById(R.id.rv_tabsH);
         img_menuBack = findViewById(R.id.img_menuBack);
@@ -71,6 +86,7 @@ public class main_menu_activity extends AppCompatActivity {
         btn_soporte.setClickable(false);
         btn_cerrarS.setClickable(false);
         img_btnBack.setClickable(false);
+
 
         LinearLayoutManager manager = new LinearLayoutManager(this);
         rv_tabsH.setLayoutManager(manager);
@@ -112,6 +128,8 @@ public class main_menu_activity extends AppCompatActivity {
 
             String user_nameFirebase = user.getDisplayName();
             user_name.setText(user_nameFirebase);
+
+            ImagenesFirebase.descargarFoto(user_nameFirebase, "profilePic", img_user_pic);
 
         }
     }
@@ -174,6 +192,13 @@ public class main_menu_activity extends AppCompatActivity {
     public void favTabs(View view) {
 
         Intent i = new Intent(main_menu_activity.this, fav_tabs_activity.class);
+        startActivity(i);
+
+    }
+
+    public void ir_perfil(View view) {
+
+        Intent i = new Intent(main_menu_activity.this, perfil_activity.class);
         startActivity(i);
 
     }
