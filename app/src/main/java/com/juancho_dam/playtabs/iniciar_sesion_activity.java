@@ -83,7 +83,7 @@ public class iniciar_sesion_activity extends AppCompatActivity {
 
                             } else {
                                 // If sign in fails, display a message to the user.
-                                Toast.makeText(iniciar_sesion_activity.this, "Error al Iniciar Sesión", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(iniciar_sesion_activity.this, "Error al Iniciar Sesión, comprueba tus credenciales", Toast.LENGTH_SHORT).show();
                                 // updateUI(null);
                             }
                         }

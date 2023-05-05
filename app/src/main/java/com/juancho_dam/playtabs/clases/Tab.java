@@ -7,12 +7,14 @@ public class Tab implements Serializable {
     private String idCancion;
     private String nombreCancion;
     private String artista;
+    private String genero;
     private int calificacion;
 
-    public Tab(String idCancion, String nombreCancion, String artista, int calificacion) {
+    public Tab(String idCancion, String nombreCancion, String artista, String genero,int calificacion) {
         this.idCancion = idCancion;
         this.nombreCancion = nombreCancion;
         this.artista = artista;
+        this.genero = genero;
         this.calificacion = calificacion;
     }
 
@@ -20,7 +22,16 @@ public class Tab implements Serializable {
         this.idCancion = "0";
         this.nombreCancion = "";
         this.artista = "";
+        this.genero = "";
         this.calificacion = 0;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 
     public String getIdCancion() {

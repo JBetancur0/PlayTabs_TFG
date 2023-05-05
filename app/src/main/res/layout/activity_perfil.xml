@@ -7,21 +7,22 @@
     android:background="@drawable/gradient_main"
     tools:context=".perfil_activity">
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/img_profileUserPic"
-        android:layout_width="145dp"
-        android:layout_height="128dp"
+        android:layout_width="131dp"
+        android:layout_height="134dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/RoundedSquare"
         app:srcCompat="@drawable/user_pic" />
 
     <TextView
         android:id="@+id/txt_profileUserName"
         android:layout_width="303dp"
         android:layout_height="54dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/sriracha"
         android:gravity="center"
         android:text="@string/txt_nombre_user"
@@ -33,10 +34,11 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="395dp"
-        android:layout_height="486dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="394dp"
+        android:layout_height="458dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_profileUserName"
         app:srcCompat="@drawable/input_background" />
@@ -48,6 +50,7 @@
         android:layout_marginTop="136dp"
         android:background="@drawable/button_radius"
         android:fontFamily="@font/sriracha"
+        android:onClick="cambiar_userName"
         android:text="@string/btn_cambiarNombre"
         android:textColor="#000000"
         android:textSize="18sp"

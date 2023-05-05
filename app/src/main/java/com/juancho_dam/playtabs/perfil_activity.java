@@ -2,12 +2,16 @@ package com.juancho_dam.playtabs;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,6 +19,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -41,7 +46,7 @@ public class perfil_activity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
 
-        ImagenesFirebase.descargarFoto(currentUser.getDisplayName(), "profilePic", img_userPic);
+        ImagenesFirebase.descargarFoto(currentUser.getUid(), "profilePic", img_userPic);
 
         txt_userName.setText(String.valueOf(currentUser.getDisplayName()));
     }
@@ -64,22 +69,46 @@ public class perfil_activity extends AppCompatActivity {
             imageURI = data.getData();
             img_userPic.setImageURI(imageURI);
 
-            storageRef = FirebaseStorage.getInstance().getReference().child(currentUser.getDisplayName()).child("profilePic");
-            storageRef.putFile(imageURI)
-                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-
-
-
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-
-                        }
-                    });
-
+            storageRef = FirebaseStorage.getInstance().getReference().child(currentUser.getUid()).child("profilePic");
+            storageRef.putFile(imageURI);
+            
         }
+    }
+
+    public void cambiar_userName(View view) {
+
+
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Nuevo nombre de usuario");
+
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        builder.setView(input);
+
+        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            String nuevoNombre = "";
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                nuevoNombre = input.getText().toString();
+
+                txt_userName.setText(nuevoNombre);
+
+                UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                        .setDisplayName(nuevoNombre)
+                        .build();
+                currentUser.updateProfile(profileUpdates);
+            }
+        });
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
+
+
     }
 }

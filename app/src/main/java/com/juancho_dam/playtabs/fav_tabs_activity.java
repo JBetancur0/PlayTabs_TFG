@@ -54,7 +54,7 @@ public class fav_tabs_activity extends AppCompatActivity {
         rv_favTabs.setAdapter(adaptadorTabs);
 
         myRefTabs = FirebaseDatabase.getInstance().getReference("TabsHashmap");
-        myRefTabsF = FirebaseDatabase.getInstance().getReference("favUsers").child(currentUser.getDisplayName());
+        myRefTabsF = FirebaseDatabase.getInstance().getReference("favUsers").child(currentUser.getUid());
 
         ArrayList<String> favTabs = new ArrayList<String>();
 

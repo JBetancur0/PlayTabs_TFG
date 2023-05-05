@@ -112,7 +112,7 @@ public class detalles_tab_activity extends AppCompatActivity {
             listRef = storage.getReference().child(t.getIdCancion()+"/");
         }
 
-        DatabaseReference refFavs = FirebaseDatabase.getInstance().getReference("favUsers").child(currentUser.getDisplayName());
+        DatabaseReference refFavs = FirebaseDatabase.getInstance().getReference("favUsers").child(currentUser.getUid());
         ArrayList<String> listFavs = new ArrayList<String>();
         refFavs.addValueEventListener(new ValueEventListener() {
             @Override
@@ -237,9 +237,9 @@ public class detalles_tab_activity extends AppCompatActivity {
                     .setTitle("Eliminar de Favoritos")
                     .setPositiveButton("Si", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
-                            String userName = currentUser.getDisplayName();
+                            String userName = currentUser.getUid();
 
-                            DatabaseReference myRef = database.getInstance().getReference("favUsers/"+currentUser.getDisplayName()+"/"+t.getIdCancion());
+                            DatabaseReference myRef = database.getInstance().getReference("favUsers/"+currentUser.getUid()+"/"+t.getIdCancion());
                             myRef.removeValue();
 
                             myRef.removeValue(new DatabaseReference.CompletionListener() {
@@ -275,7 +275,7 @@ public class detalles_tab_activity extends AppCompatActivity {
 
                             DatabaseReference myRef = database.getReference();
 
-                            String userName = currentUser.getDisplayName();
+                            String userName = currentUser.getUid();
 
                             myRef.child("favUsers").child(userName).child(t.getIdCancion()).setValue(t.getIdCancion());
 

@@ -28,6 +28,7 @@ import java.util.ArrayList;
 
 public class main_menu_activity extends AppCompatActivity {
 
+    public static final String EXTRA_NOMBRE_TAB = "es.juancho.nombreTab_buscar";
     private TextView user_name;
     private RecyclerView rv_tabsH = null;
     private ListaTabsAdapter adaptadorTabs;
@@ -51,7 +52,8 @@ public class main_menu_activity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
-        ImagenesFirebase.descargarFoto(currentUser.getDisplayName(), "profilePic", img_user_pic);
+        ImagenesFirebase.descargarFoto(currentUser.getUid(), "profilePic", img_user_pic);
+        user_name.setText(currentUser.getDisplayName());
     }
 
     @Override
@@ -129,7 +131,7 @@ public class main_menu_activity extends AppCompatActivity {
             String user_nameFirebase = user.getDisplayName();
             user_name.setText(user_nameFirebase);
 
-            ImagenesFirebase.descargarFoto(user_nameFirebase, "profilePic", img_user_pic);
+            ImagenesFirebase.descargarFoto(user.getUid(), "profilePic", img_user_pic);
 
         }
     }
@@ -200,6 +202,26 @@ public class main_menu_activity extends AppCompatActivity {
 
         Intent i = new Intent(main_menu_activity.this, perfil_activity.class);
         startActivity(i);
+
+    }
+
+    public void buscarTab(View view) {
+
+        String nombreTab = String.valueOf(input_nom_tab.getText());
+        if(nombreTab.isEmpty()){
+
+            input_nom_tab.setError("Introduce una búsqueda");
+
+        }
+
+        else{
+
+            Intent i =  new Intent(main_menu_activity.this, resultados_activity.class);
+            i.putExtra(EXTRA_NOMBRE_TAB, nombreTab);
+            startActivity(i);
+
+        }
+
 
     }
 }

@@ -110,7 +110,7 @@ public class registrarse_activity extends AppCompatActivity {
                                                 if(task.isSuccessful()){
 
                                                     DatabaseReference myRef = database.getReference();
-                                                    myRef.child("favUsers").child(userName);
+                                                    myRef.child("favUsers").child(user.getUid());
 
                                                 }
                                             }
