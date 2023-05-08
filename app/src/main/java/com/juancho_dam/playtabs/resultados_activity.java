@@ -59,8 +59,11 @@ public class resultados_activity extends AppCompatActivity{
 
         tabs = new ArrayList<Tab>();
         artistas = new ArrayList<String>();
+        artistas.add("Todo");
         generos = new ArrayList<String>();
+        generos.add("Todo");
         calificaciones = new ArrayList<String>();
+        calificaciones.add("Todo");
         calificaciones.add("Mejores");
         calificaciones.add("Normales");
         calificaciones.add("Malas");
@@ -129,6 +132,45 @@ public class resultados_activity extends AppCompatActivity{
                     filtroArtistas.setDropDownViewResource(R.layout.spinner_item_drop);
                     spn_filtro.setAdapter(filtroArtistas);
 
+                    spn_filtro.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                            String Item1 = artistas.get(i);
+
+                            if(Item1.equalsIgnoreCase("Todo")){
+
+                                adaptadorTabs.setTabs(tabs);
+                                adaptadorTabs.notifyDataSetChanged();
+
+                            }
+
+                            else{
+
+                                ArrayList<Tab> tabsFiltradas = new ArrayList<Tab>();
+
+                                for(Tab t: tabs){
+
+                                    if(t.getArtista().equalsIgnoreCase(Item1)){
+
+                                        tabsFiltradas.add(t);
+
+                                    }
+
+                                }
+
+                                adaptadorTabs.setTabs(tabsFiltradas);
+                                adaptadorTabs.notifyDataSetChanged();
+
+                            }
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> adapterView) {
+
+                        }
+                    });
+
+
                 }
 
                 else if(Item1.equalsIgnoreCase("Género")){
@@ -137,6 +179,47 @@ public class resultados_activity extends AppCompatActivity{
                     filtroGeneros.setDropDownViewResource(R.layout.spinner_item_drop);
                     spn_filtro.setAdapter(filtroGeneros);
 
+                    spn_filtro.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                            String Item1 = generos.get(i);
+
+                            if(Item1.equalsIgnoreCase("Todo")){
+
+                                adaptadorTabs.setTabs(tabs);
+                                adaptadorTabs.notifyDataSetChanged();
+
+                            }
+
+                            else{
+
+                                ArrayList<Tab> tabsFiltradas = new ArrayList<Tab>();
+
+                                for(Tab t: tabs){
+
+                                    if(t.getGenero().equalsIgnoreCase(Item1)){
+
+                                        tabsFiltradas.add(t);
+
+                                    }
+
+                                }
+
+                                adaptadorTabs.setTabs(tabsFiltradas);
+                                adaptadorTabs.notifyDataSetChanged();
+
+                            }
+
+
+
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> adapterView) {
+
+                        }
+                    });
+
                 }
 
                 else if(Item1.equalsIgnoreCase("Calificación")){
@@ -144,6 +227,83 @@ public class resultados_activity extends AppCompatActivity{
                     ArrayAdapter<String> filtroCalif = new ArrayAdapter(resultados_activity.this, R.layout.spinner_item, calificaciones);
                     filtroCalif .setDropDownViewResource(R.layout.spinner_item_drop);
                     spn_filtro.setAdapter(filtroCalif );
+
+                    spn_filtro.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                            String Item1 = calificaciones.get(i);
+
+                            if(Item1.equalsIgnoreCase("Todo")){
+
+                                adaptadorTabs.setTabs(tabs);
+                                adaptadorTabs.notifyDataSetChanged();
+
+                            }
+
+                            else{
+
+                                ArrayList<Tab> tabsFiltradas = new ArrayList<Tab>();
+
+                                if(Item1.equalsIgnoreCase("Mejores")){
+
+                                    for(Tab t: tabs){
+
+                                        if(t.getCalificacion()>= 4){
+
+                                            tabsFiltradas.add(t);
+
+                                        }
+
+                                    }
+
+                                    adaptadorTabs.setTabs(tabsFiltradas);
+                                    adaptadorTabs.notifyDataSetChanged();
+                                }
+
+                                else if(Item1.equalsIgnoreCase("Normales")){
+
+                                    for(Tab t: tabs){
+
+                                        if(t.getCalificacion()>=2 && t.getCalificacion()<=3){
+
+                                            tabsFiltradas.add(t);
+
+                                        }
+
+                                    }
+
+                                    adaptadorTabs.setTabs(tabsFiltradas);
+                                    adaptadorTabs.notifyDataSetChanged();
+
+                                }
+
+                                else if(Item1.equalsIgnoreCase("Malas")){
+
+                                    for(Tab t: tabs){
+
+                                        if(t.getCalificacion()<2){
+
+                                            tabsFiltradas.add(t);
+
+                                        }
+
+                                    }
+
+                                    adaptadorTabs.setTabs(tabsFiltradas);
+                                    adaptadorTabs.notifyDataSetChanged();
+
+                                }
+
+
+                            }
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> adapterView) {
+
+                        }
+                    });
 
                 }
             }
