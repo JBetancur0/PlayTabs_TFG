@@ -37,6 +37,13 @@ public class resultados_activity extends AppCompatActivity{
     private RecyclerView rv_resultados;
     private DatabaseReference refTabs = null;
 
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        adaptadorTabs.notifyDataSetChanged();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +65,7 @@ public class resultados_activity extends AppCompatActivity{
         rv_resultados.setHasFixedSize(true);
 
         tabs = new ArrayList<Tab>();
+        adaptadorTabs = new ListaTabsAdapter(resultados_activity.this, tabs);
         artistas = new ArrayList<String>();
         artistas.add("Todo");
         generos = new ArrayList<String>();
@@ -75,7 +83,7 @@ public class resultados_activity extends AppCompatActivity{
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 ArrayList<String> keys = new ArrayList<String>();
 
-                adaptadorTabs = new ListaTabsAdapter(resultados_activity.this, tabs);
+
                 rv_resultados.setAdapter(adaptadorTabs);
 
                 for(DataSnapshot keynode:snapshot.getChildren()){

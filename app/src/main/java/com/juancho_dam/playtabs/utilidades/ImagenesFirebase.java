@@ -81,26 +81,4 @@ public class ImagenesFirebase {
             }
         });
     }
-
-    public static void borrarFoto(String nombre_carpeta, String foto) {
-        FirebaseStorage storage = FirebaseStorage.getInstance();
-        StorageReference storageRef = storage.getReference();
-        StorageReference islandRef = storageRef.child(nombre_carpeta + "/"+ foto + ".png");
-        // StorageReference islandRef = storageRef.child(nombre_carpeta);
-
-        // Delete the file
-        islandRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                // File deleted successfully
-                Log.i("firebase1","foto borrada correctamente");
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception exception) {
-                // Uh-oh, an error occurred!
-                Log.i("firebase1","la foto no se pudo borrar");
-            }
-        });
-    }
 }

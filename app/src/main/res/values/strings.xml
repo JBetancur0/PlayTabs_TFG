@@ -32,4 +32,10 @@
     <string name="txt_favTabs">Tablaturas Favoritas</string>
     <string name="btn_cambiarNombre">Cambiar Nombre de Usuario</string>
     <string name="btn_cambiarImagen">Cambiar Foto de Perfil</string>
+    <string name="txt_contacto">Si tienes algún problema con la aplicación
+    o quieres enviarnos sugerencias, contacta con nosotros en el siguiente correo:</string>
+    <string name="txt_correoContacto">support@playtabs.com</string>
+    <string name="img_tabview">img_tabview</string>
+
+
 </resources>

@@ -89,8 +89,6 @@ public class iniciar_sesion_activity extends AppCompatActivity {
                         }
                     });
 
-
-
         }
 
     }

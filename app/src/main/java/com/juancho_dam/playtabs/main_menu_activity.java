@@ -147,6 +147,7 @@ public class main_menu_activity extends AppCompatActivity {
         input_nom_tab.setFocusable(false);
         rv_tabsH.setClickable(false);
         rv_tabsH.setFocusable(false);
+        btn_buscarTab.setClickable(false);
         input_nom_tab.setFocusableInTouchMode(false);
         img_menuBack.animate().alpha(1.0f).setDuration(300);
         btn_buscarTab.animate().alpha(0.0f).setDuration(300);
@@ -172,6 +173,7 @@ public class main_menu_activity extends AppCompatActivity {
         input_nom_tab.setFocusable(true);
         rv_tabsH.setClickable(true);
         rv_tabsH.setFocusable(true);
+        btn_buscarTab.setClickable(true);
         input_nom_tab.setFocusableInTouchMode(true);
         img_menuBack.animate().alpha(0.0f).setDuration(300);
         img_btnBack.animate().alpha(0.0f).setDuration(300);
@@ -222,6 +224,13 @@ public class main_menu_activity extends AppCompatActivity {
 
         }
 
+
+    }
+
+    public void ir_Soporte(View view) {
+
+        Intent i = new Intent(main_menu_activity.this, soporte_activity.class);
+        startActivity(i);
 
     }
 }

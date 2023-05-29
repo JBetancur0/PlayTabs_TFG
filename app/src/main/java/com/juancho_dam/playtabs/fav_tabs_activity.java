@@ -97,8 +97,5 @@ public class fav_tabs_activity extends AppCompatActivity {
             }
         });
 
-
-
-
     }
 }

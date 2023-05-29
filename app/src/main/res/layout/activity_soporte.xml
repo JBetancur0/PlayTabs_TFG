@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_main"
+    tools:context=".soporte_activity">
+
+    <ImageView
+        android:id="@+id/img_logoSoporte"
+        android:layout_width="333dp"
+        android:layout_height="133dp"
+        android:layout_marginTop="32dp"
+        android:contentDescription="null"
+        android:src="@drawable/logotabs1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_contacto"
+        android:layout_width="400dp"
+        android:layout_height="256dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/input_background"
+        android:fontFamily="@font/sriracha"
+        android:gravity="center"
+        android:text="@string/txt_contacto"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_logoSoporte" />
+
+    <TextView
+        android:id="@+id/txt_correoContacto"
+        android:layout_width="383dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button_radius"
+        android:fontFamily="@font/sriracha"
+        android:gravity="center"
+        android:text="@string/txt_correoContacto"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_contacto" />
+</androidx.constraintlayout.widget.ConstraintLayout>

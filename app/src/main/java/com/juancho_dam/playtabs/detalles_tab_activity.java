@@ -159,8 +159,6 @@ public class detalles_tab_activity extends AppCompatActivity {
 
 
 
-
-
         String finalIdTab = idTab;
         listRef.listAll()
                 .addOnSuccessListener(new OnSuccessListener<ListResult>() {
@@ -289,9 +287,6 @@ public class detalles_tab_activity extends AppCompatActivity {
                         }
                     });
             builder.show();
-
-
-
         }
 
     }
