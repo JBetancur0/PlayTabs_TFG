@@ -6,7 +6,7 @@ PlayTabs es un aplicación para dispositivos Android, enfocada a los usuarios pr
 
 Basta con ejecutar el APK en algún dispositivo Android, hay que asegurarse de tener aceptadas las fuentes desconocidas para que la instalación sea exitosa.
 
-## Tutorial de uso
+# Tutorial de uso
 
 ## Login
 
